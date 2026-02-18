@@ -1,10 +1,21 @@
 {
-  "timestamp_utc": "2026-02-18T05:23:51Z",
+  "timestamp_utc": "2026-02-18T05:32:38Z",
+  "system": {
+    "openclaw_version": "2026.2.15",
+    "gateway_port_listening": true,
+    "memory_index_last_status": "blocked_missing_embeddings_key"
+  },
+  "jobs": {
+    "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
+    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":0},
+    "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
+    "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
+  },
   "providers": {
     "openrouter": {"status": "ok", "http": 200, "usage_daily_usd": 0.0032767, "message": "key ok"},
-    "brave": {"status": "not_configured", "http": null, "remaining": null, "message": ""},
+    "brave": {"status": "ok", "http": 200, "remaining": 0, "message": "search ok"},
     "voyage": {"status": "not_configured", "http": null, "message": ""},
     "minimax": {"status": "configured", "http": 404, "message": "models endpoint not exposed; key present"},
-    "telegram": {"status": "ok"}
+    "telegram": {"status": "configured_but_not_ok"}
   }
 }

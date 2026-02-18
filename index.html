@@ -96,7 +96,11 @@
     </div>
 
     <div id="error" class="error-box"></div>
+    <div id="system" class="grid"></div>
+    <h3 style="margin-top:18px">Providers</h3>
     <div id="cards" class="grid"></div>
+    <h3 style="margin-top:18px">Automation Jobs</h3>
+    <div id="jobs" class="grid"></div>
 
     <details>
       <summary>Raw JSON</summary>
@@ -139,6 +143,44 @@
       `).join("");
     }
 
+    function renderSystem(system) {
+      const el = document.getElementById("system");
+      if (!system) {
+        el.innerHTML = "";
+        return;
+      }
+      const cls = system.gateway_port_listening ? "ok" : "err";
+      el.innerHTML = `
+        <div class="card">
+          <h3>System</h3>
+          <div class="row">OpenClaw: <b>${fmt(system.openclaw_version)}</b></div>
+          <div class="row">Gateway Port 18789: <b class="${cls}">${system.gateway_port_listening ? "listening" : "down"}</b></div>
+          <div class="row">Memory Index: <b>${fmt(system.memory_index_last_status)}</b></div>
+        </div>
+      `;
+    }
+
+    function renderJobs(jobs) {
+      const el = document.getElementById("jobs");
+      const entries = Object.entries(jobs || {});
+      if (entries.length === 0) {
+        el.innerHTML = `<div class="card"><div class="row">No jobs found.</div></div>`;
+        return;
+      }
+      el.innerHTML = entries.map(([name, j]) => {
+        const st = fmt(j.state);
+        const cls = st.includes("running") || st.includes("waiting") || st.includes("not running") ? "ok" : "warn";
+        return `
+          <div class="card">
+            <h3>${name}</h3>
+            <div class="row">Installed: <b>${fmt(j.installed)}</b></div>
+            <div class="row">State: <b class="${cls}">${st}</b></div>
+            <div class="row">Last Exit Code: ${fmt(j.last_exit_code)}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
     function renderSummary(providers) {
       const list = Object.values(providers || {});
       const ok = list.filter(p => p.status === "ok").length;
@@ -161,7 +203,9 @@
         document.getElementById("ts").textContent = `Updated: ${fmt(data.timestamp_utc)}`;
         document.getElementById("raw").textContent = JSON.stringify(data, null, 2);
 
+        renderSystem(data.system || {});
         renderCards(data.providers || {});
+        renderJobs(data.jobs || {});
         renderSummary(data.providers || {});
       } catch (e) {
         errEl.style.display = "block";
