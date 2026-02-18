@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T17:17:40Z",
+  "timestamp_utc": "2026-02-18T17:32:49Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
