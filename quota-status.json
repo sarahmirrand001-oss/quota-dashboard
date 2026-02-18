@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T06:51:36Z",
+  "timestamp_utc": "2026-02-18T06:56:53Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
@@ -10,11 +10,14 @@
   "system": {
     "openclaw_version": "2026.2.17",
     "gateway_port_listening": true,
-    "memory_index_last_status": "blocked_missing_embeddings_key"
+    "memory_index_last_status": "blocked_missing_embeddings_key",
+    "memory_search_provider": "unset",
+    "memory_search_model": "unset",
+    "memory_search_base_url": "(default)"
   },
   "jobs": {
-    "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
-    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":0},
+    "watchdog": {"installed":true,"state":"running","last_exit_code":0},
+    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":1},
     "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
