@@ -1,11 +1,15 @@
 {
-  "timestamp_utc": "2026-02-18T09:26:18Z",
+  "timestamp_utc": "2026-02-18T09:49:02Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
+    {"priority":"P0","item":"Kiro removed from local app stack (confirmed)","status":"completed"},
+    {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
     {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
     {"priority":"P1","item":"Voyage monitor only (no auto-topup, alert-only)","status":"active"},
+    {"priority":"P2","item":"Voice/life automation plan (6:00 wake, sleep reminder, music trigger)","status":"planned"},
     {"priority":"P2","item":"Model routing fallback: Lite -> Gemini 3 Flash after 2 failures","status":"active"},
-    {"priority":"P3","item":"Pilot Protocol integration and regression tests","status":"planned"}
+    {"priority":"P2","item":"Pilot Protocol install + smoke test","status":"in_progress"},
+    {"priority":"P3","item":"Persona/identity learning pack: waiting for 2-3 source articles from user","status":"blocked"}
   ],
   "system": {
     "openclaw_version": "2026.2.17",
@@ -17,7 +21,7 @@
   },
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
-    "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
+    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
@@ -33,12 +37,12 @@
       "message": "key ok"
     },
     "brave": {
-      "status": "not_configured",
-      "http": null,
-      "remaining": null,
+      "status": "ok",
+      "http": 200,
+      "remaining": 0,
       "key_source": "env",
       "configured_in_openclaw_env": false,
-      "message": ""
+      "message": "search ok"
     },
     "voyage": {
       "status": "error",
@@ -55,6 +59,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "ok"}
+    "telegram": {"status": "configured_but_not_ok"}
   }
 }
