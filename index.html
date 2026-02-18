@@ -3,53 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quota Dashboard</title>
+  <title>OpenClaw Quota Dashboard</title>
   <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;background:#0b1220;color:#e5e7eb;margin:24px}
-    h1{margin:0 0 8px}
-    .muted{color:#94a3b8}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px}
-    .card{background:#121a2b;border:1px solid #25324a;border-radius:12px;padding:14px}
-    .ok{color:#22c55e}.warn{color:#f59e0b}.err{color:#ef4444}
-    code{background:#1f2937;padding:2px 6px;border-radius:6px}
-    button{background:#2563eb;color:white;border:none;border-radius:8px;padding:8px 12px;cursor:pointer}
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --line: #25324a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --err: #ef4444;
+      --btn: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .muted { color: var(--muted); }
+    .top { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    button {
+      background: var(--btn);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .card h3 { margin: 0 0 8px; text-transform: capitalize; }
+    .row { margin: 6px 0; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .err { color: var(--err); }
+    code {
+      background: #1f2937;
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #d1d5db;
+    }
+    details {
+      margin-top: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 8px 0 0;
+      color: #cbd5e1;
+    }
+    .error-box {
+      margin-top: 12px;
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.4);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #fecaca;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <h1>OpenClaw Quota Dashboard</h1>
-  <p class="muted">Data source: <code>quota-status.json</code> | <span id="ts">loading...</span></p>
-  <button id="refresh">Refresh</button>
-  <div id="cards" class="grid"></div>
+  <div class="wrap">
+    <h1>OpenClaw Quota Dashboard</h1>
+    <p class="muted">Data source: <code>quota-status.json</code> | <span id="ts">loading...</span></p>
+
+    <div class="top">
+      <button id="refresh">Refresh</button>
+      <span id="summary" class="muted"></span>
+    </div>
+
+    <div id="error" class="error-box"></div>
+    <div id="cards" class="grid"></div>
+
+    <details>
+      <summary>Raw JSON</summary>
+      <pre id="raw">(loading)</pre>
+    </details>
+  </div>
 
   <script>
-    function badgeClass(status){
-      if(status===ok) return ok;
-      if(status===configured || status===configured_but_not_ok) return warn;
-      return err;
+    function badgeClass(status) {
+      if (status === "ok") return "ok";
+      if (status === "configured" || status === "configured_but_not_ok") return "warn";
+      return "err";
     }
 
-    function fmt(v){ return v===null || v===undefined ? - : String(v); }
+    function fmt(v) {
+      return v === null || v === undefined || v === "" ? "-" : String(v);
+    }
 
-    async function load(){
-      const res = await fetch(`quota-status.json?ts=${Date.now()}`);
-      const data = await res.json();
-      document.getElementById(ts).textContent = `Updated: ${data.timestamp_utc}`;
-      const providers = data.providers || {};
-      const cards = Object.entries(providers).map(([name, p]) => {
-        const cls = badgeClass(p.status);
-        return `<div class="card">
+    function statusText(p) {
+      return `<span class="${badgeClass(p.status)}">${fmt(p.status)}</span>`;
+    }
+
+    function renderCards(providers) {
+      const cardsEl = document.getElementById("cards");
+      const entries = Object.entries(providers || {});
+      if (entries.length === 0) {
+        cardsEl.innerHTML = `<div class="card"><div class="row">No provider data found.</div></div>`;
+        return;
+      }
+
+      cardsEl.innerHTML = entries.map(([name, p]) => `
+        <div class="card">
           <h3>${name}</h3>
-          <p>Status: <b class="${cls}">${fmt(p.status)}</b></p>
-          <p>HTTP: ${fmt(p.http)}</p>
-          <p>Message: ${fmt(p.message)}</p>
-          <p>Remaining: ${fmt(p.remaining)}</p>
-          <p>Daily USD: ${fmt(p.usage_daily_usd)}</p>
-        </div>`;
-      }).join();
-      document.getElementById(cards).innerHTML = cards;
+          <div class="row">Status: <b>${statusText(p)}</b></div>
+          <div class="row">HTTP: ${fmt(p.http)}</div>
+          <div class="row">Message: ${fmt(p.message)}</div>
+          <div class="row">Remaining: ${fmt(p.remaining)}</div>
+          <div class="row">Daily USD: ${fmt(p.usage_daily_usd)}</div>
+        </div>
+      `).join("");
     }
 
-    document.getElementById(refresh).addEventListener(click, load);
+    function renderSummary(providers) {
+      const list = Object.values(providers || {});
+      const ok = list.filter(p => p.status === "ok").length;
+      const warn = list.filter(p => p.status === "configured" || p.status === "configured_but_not_ok").length;
+      const err = list.filter(p => !(p.status === "ok" || p.status === "configured" || p.status === "configured_but_not_ok")).length;
+      document.getElementById("summary").textContent = `OK ${ok} · WARN ${warn} · ERR ${err}`;
+    }
+
+    async function load() {
+      const btn = document.getElementById("refresh");
+      const errEl = document.getElementById("error");
+      errEl.style.display = "none";
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(`quota-status.json?ts=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const data = await res.json();
+        document.getElementById("ts").textContent = `Updated: ${fmt(data.timestamp_utc)}`;
+        document.getElementById("raw").textContent = JSON.stringify(data, null, 2);
+
+        renderCards(data.providers || {});
+        renderSummary(data.providers || {});
+      } catch (e) {
+        errEl.style.display = "block";
+        errEl.textContent = `Load failed: ${e.message}`;
+        document.getElementById("ts").textContent = "Update failed";
+        document.getElementById("summary").textContent = "";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById("refresh").addEventListener("click", load);
     load();
   </script>
 </body>
