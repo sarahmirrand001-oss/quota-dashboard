@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T08:40:50Z",
+  "timestamp_utc": "2026-02-18T08:56:04Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
