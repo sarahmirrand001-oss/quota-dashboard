@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T20:34:59Z",
+  "timestamp_utc": "2026-02-18T20:51:02Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
@@ -26,14 +26,14 @@
   },
   "providers": {
     "openrouter": {
-      "status": "error",
-      "http": 000,
-      "usage_daily_usd": null,
-      "usage_weekly_usd": null,
-      "usage_monthly_usd": null,
+      "status": "ok",
+      "http": 200,
+      "usage_daily_usd": 0.0369091,
+      "usage_weekly_usd": 0.0369091,
+      "usage_monthly_usd": 0.0369091,
       "key_source": "auth_profiles",
       "configured_in_openclaw_env": true,
-      "message": "request failed"
+      "message": "key ok"
     },
     "brave": {
       "status": "not_configured",
@@ -45,19 +45,19 @@
     },
     "voyage": {
       "status": "error",
-      "http": 000,
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
       "monitor_mode": "alert_only",
       "message": "{\\\"detail\\\":\\\"Not Found\\\"}"
     },
     "minimax": {
-      "status": "error",
-      "http": 000,
+      "status": "configured",
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
-      "message": "404 page not found"
+      "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
