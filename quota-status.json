@@ -1,5 +1,12 @@
 {
-  "timestamp_utc": "2026-02-18T05:38:57Z",
+  "timestamp_utc": "2026-02-18T05:47:26Z",
+  "roadmap": [
+    {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
+    {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
+    {"priority":"P1","item":"Voyage monitor only (no auto-topup, alert-only)","status":"active"},
+    {"priority":"P2","item":"Model routing fallback: Lite -> Gemini 3 Flash after 2 failures","status":"active"},
+    {"priority":"P3","item":"Pilot Protocol integration and regression tests","status":"planned"}
+  ],
   "system": {
     "openclaw_version": "2026.2.17",
     "gateway_port_listening": true,
@@ -7,13 +14,13 @@
   },
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
-    "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
+    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
     "openrouter": {"status": "ok", "http": 200, "usage_daily_usd": 0.0032767, "message": "key ok"},
-    "brave": {"status": "not_configured", "http": null, "remaining": null, "message": ""},
+    "brave": {"status": "ok", "http": 200, "remaining": 0, "message": "search ok"},
     "voyage": {"status": "not_configured", "http": null, "message": ""},
     "minimax": {"status": "configured", "http": 404, "message": "models endpoint not exposed; key present"},
     "telegram": {"status": "unknown"}

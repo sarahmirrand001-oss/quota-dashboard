@@ -97,6 +97,8 @@
 
     <div id="error" class="error-box"></div>
     <div id="system" class="grid"></div>
+    <h3 style="margin-top:18px">Roadmap Priority</h3>
+    <div id="roadmap" class="grid"></div>
     <h3 style="margin-top:18px">Providers</h3>
     <div id="cards" class="grid"></div>
     <h3 style="margin-top:18px">Automation Jobs</h3>
@@ -189,6 +191,27 @@
       document.getElementById("summary").textContent = `OK ${ok} · WARN ${warn} · ERR ${err}`;
     }
 
+    function renderRoadmap(items) {
+      const el = document.getElementById("roadmap");
+      const arr = Array.isArray(items) ? items : [];
+      if (arr.length === 0) {
+        el.innerHTML = `<div class="card"><div class="row">No roadmap items.</div></div>`;
+        return;
+      }
+      el.innerHTML = arr.map((r) => {
+        const pr = String(r.priority || "-");
+        const st = String(r.status || "-");
+        const cls = st === "active" || st === "in_progress" ? "ok" : "warn";
+        return `
+          <div class="card">
+            <h3>${pr}</h3>
+            <div class="row">${r.item || "-"}</div>
+            <div class="row">Status: <b class="${cls}">${st}</b></div>
+          </div>
+        `;
+      }).join("");
+    }
+
     async function load() {
       const btn = document.getElementById("refresh");
       const errEl = document.getElementById("error");
@@ -204,6 +227,7 @@
         document.getElementById("raw").textContent = JSON.stringify(data, null, 2);
 
         renderSystem(data.system || {});
+        renderRoadmap(data.roadmap || []);
         renderCards(data.providers || {});
         renderJobs(data.jobs || {});
         renderSummary(data.providers || {});
