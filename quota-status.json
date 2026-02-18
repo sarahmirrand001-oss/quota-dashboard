@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T12:29:54Z",
+  "timestamp_utc": "2026-02-18T12:45:03Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
@@ -19,7 +19,7 @@
     "memory_search_base_url": "(default)"
   },
   "jobs": {
-    "watchdog": {"installed":true,"state":"running","last_exit_code":0},
+    "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
     "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
