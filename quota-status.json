@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T05:47:26Z",
+  "timestamp_utc": "2026-02-18T05:54:07Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
@@ -14,13 +14,13 @@
   },
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
-    "quota_monitor": {"installed":true,"state":"not running","last_exit_code":0},
+    "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
     "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
     "openrouter": {"status": "ok", "http": 200, "usage_daily_usd": 0.0032767, "message": "key ok"},
-    "brave": {"status": "ok", "http": 200, "remaining": 0, "message": "search ok"},
+    "brave": {"status": "not_configured", "http": null, "remaining": null, "message": ""},
     "voyage": {"status": "not_configured", "http": null, "message": ""},
     "minimax": {"status": "configured", "http": 404, "message": "models endpoint not exposed; key present"},
     "telegram": {"status": "unknown"}
