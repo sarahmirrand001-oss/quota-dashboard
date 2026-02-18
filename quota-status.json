@@ -1,15 +1,14 @@
 {
-  "timestamp_utc": "2026-02-18T09:56:50Z",
+  "timestamp_utc": "2026-02-18T10:12:07Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
-    {"priority":"P0","item":"Kiro removed from local app stack (confirmed)","status":"completed"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
     {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
     {"priority":"P1","item":"Voyage monitor only (no auto-topup, alert-only)","status":"active"},
-    {"priority":"P2","item":"Voice/life automation plan (6:00 wake, sleep reminder, music trigger)","status":"planned"},
+    {"priority":"P2","item":"Voice/life automation plan (6:00 wake, sleep reminder, music trigger)","status":"in_progress"},
     {"priority":"P2","item":"Model routing fallback: Lite -> Gemini 3 Flash after 2 failures","status":"active"},
     {"priority":"P2","item":"Pilot Protocol install + smoke test","status":"in_progress"},
-    {"priority":"P3","item":"Persona/identity learning pack: waiting for 2-3 source articles from user","status":"blocked"}
+    {"priority":"P3","item":"Persona/identity learning pack: waiting for 2-3 source articles from user","status":"in_progress"}
   ],
   "system": {
     "openclaw_version": "2026.2.17",
@@ -46,7 +45,7 @@
     },
     "voyage": {
       "status": "error",
-      "http": 404,
+      "http": 000,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
       "monitor_mode": "alert_only",
@@ -59,6 +58,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
