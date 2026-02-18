@@ -141,6 +141,11 @@
           <div class="row">Message: ${fmt(p.message)}</div>
           <div class="row">Remaining: ${fmt(p.remaining)}</div>
           <div class="row">Daily USD: ${fmt(p.usage_daily_usd)}</div>
+          <div class="row">Weekly USD: ${fmt(p.usage_weekly_usd)}</div>
+          <div class="row">Monthly USD: ${fmt(p.usage_monthly_usd)}</div>
+          <div class="row">Key Source: ${fmt(p.key_source)}</div>
+          <div class="row">Configured In OpenClaw: ${fmt(p.configured_in_openclaw_env)}</div>
+          <div class="row">Monitor Mode: ${fmt(p.monitor_mode)}</div>
         </div>
       `).join("");
     }
