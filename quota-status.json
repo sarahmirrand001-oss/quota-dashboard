@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-02-18T05:32:38Z",
+  "timestamp_utc": "2026-02-18T05:35:29Z",
   "system": {
-    "openclaw_version": "2026.2.15",
+    "openclaw_version": "2026.2.17",
     "gateway_port_listening": true,
     "memory_index_last_status": "blocked_missing_embeddings_key"
   },
@@ -16,6 +16,6 @@
     "brave": {"status": "ok", "http": 200, "remaining": 0, "message": "search ok"},
     "voyage": {"status": "not_configured", "http": null, "message": ""},
     "minimax": {"status": "configured", "http": 404, "message": "models endpoint not exposed; key present"},
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "unknown"}
   }
 }
