@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T13:30:29Z",
+  "timestamp_utc": "2026-02-18T13:45:39Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
@@ -28,9 +28,9 @@
     "openrouter": {
       "status": "ok",
       "http": 200,
-      "usage_daily_usd": 0.0032767,
-      "usage_weekly_usd": 0.0032767,
-      "usage_monthly_usd": 0.0032767,
+      "usage_daily_usd": 0.0369091,
+      "usage_weekly_usd": 0.0369091,
+      "usage_monthly_usd": 0.0369091,
       "key_source": "auth_profiles",
       "configured_in_openclaw_env": true,
       "message": "key ok"
@@ -58,6 +58,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
