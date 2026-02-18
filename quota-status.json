@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-18T11:44:03Z",
+  "timestamp_utc": "2026-02-18T11:59:28Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
@@ -52,11 +52,11 @@
       "message": "{\\\"detail\\\":\\\"Not Found\\\"}"
     },
     "minimax": {
-      "status": "error",
-      "http": 000,
+      "status": "configured",
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
-      "message": "404 page not found"
+      "message": "models endpoint not exposed; key present"
     },
     "telegram": {"status": "ok"}
   }
