@@ -1,14 +1,15 @@
 {
-  "timestamp_utc": "2026-02-19T06:21:56Z",
+  "timestamp_utc": "2026-02-19T06:37:33Z",
   "roadmap": [
-    {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
-    {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
-    {"priority":"P1","item":"QMD + Qdrant retrieval pipeline with scheduled indexing","status":"in_progress"},
-    {"priority":"P1","item":"Voyage monitor only (no auto-topup, alert-only)","status":"active"},
-    {"priority":"P2","item":"Voice/life automation plan (6:00 wake, sleep reminder, music trigger)","status":"completed"},
-    {"priority":"P2","item":"Model routing fallback: Lite -> Gemini 3 Flash after 2 failures","status":"active"},
-    {"priority":"P2","item":"Pilot Protocol install + smoke test (local install done; remote registry timeout)","status":"blocked"},
-    {"priority":"P3","item":"Persona/identity learning pack: waiting for 2-3 source articles from user","status":"blocked"}
+    {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
+    {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
+    {"priority":"P1","item":"Run X -> Obsidian crawler (whitelist mode) and ingest 10 structured cards","status":"planned"},
+    {"priority":"P1","item":"Memory pipeline: switch index path to local-first strategy and run full reindex","status":"planned"},
+    {"priority":"P1","item":"Voyage monitor only (alert-only, no auto-topup)","status":"active"},
+    {"priority":"P2","item":"Model router hard rule: local Qwen default -> Lite fallback -> Gemini 3 escalation","status":"active"},
+    {"priority":"P2","item":"Pilot Protocol retry window (network-stable test + smoke test)","status":"planned"},
+    {"priority":"P2","item":"Publish flow check: skill repo push -> Vercel auto-deploy validation","status":"planned"},
+    {"priority":"P3","item":"Persona/identity pack merge from Antigravity output (remove placeholders)","status":"planned"}
   ],
   "system": {
     "openclaw_version": "2026.2.17",
@@ -52,11 +53,11 @@
       "message": "{\\\"detail\\\":\\\"Not Found\\\"}"
     },
     "minimax": {
-      "status": "configured",
-      "http": 404,
+      "status": "error",
+      "http": 000,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
-      "message": "models endpoint not exposed; key present"
+      "message": "404 page not found"
     },
     "telegram": {"status": "configured_but_not_ok"}
   }
