@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-19T05:51:00Z",
+  "timestamp_utc": "2026-02-19T06:06:37Z",
   "roadmap": [
     {"priority":"P0","item":"LM Studio local embeddings for memory index (replace paid embeddings)","status":"in_progress"},
     {"priority":"P1","item":"X -> Obsidian crawler execution is pending (pipeline rules ready, crawler run missing)","status":"blocked"},
@@ -21,7 +21,7 @@
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
-    "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
+    "quota_sync": {"installed":true,"state":"not running","last_exit_code":128},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
@@ -45,7 +45,7 @@
     },
     "voyage": {
       "status": "error",
-      "http": 000,
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
       "monitor_mode": "alert_only",
@@ -58,6 +58,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
