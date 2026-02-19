@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-19T08:09:32Z",
+  "timestamp_utc": "2026-02-19T08:24:45Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -27,14 +27,14 @@
   },
   "providers": {
     "openrouter": {
-      "status": "error",
-      "http": 401,
-      "usage_daily_usd": null,
-      "usage_weekly_usd": null,
-      "usage_monthly_usd": null,
+      "status": "ok",
+      "http": 200,
+      "usage_daily_usd": 0.01099353,
+      "usage_weekly_usd": 0.05235873,
+      "usage_monthly_usd": 0.05235873,
       "key_source": "auth_profiles",
       "configured_in_openclaw_env": true,
-      "message": "User not found."
+      "message": "key ok"
     },
     "brave": {
       "status": "not_configured",
