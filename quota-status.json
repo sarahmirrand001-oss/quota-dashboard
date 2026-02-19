@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-19T11:42:11Z",
+  "timestamp_utc": "2026-02-19T11:57:38Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -22,16 +22,16 @@
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
-    "quota_sync": {"installed":true,"state":"not running","last_exit_code":128},
+    "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
     "openrouter": {
       "status": "ok",
       "http": 200,
-      "usage_daily_usd": 6.52834677,
-      "usage_weekly_usd": 6.56971197,
-      "usage_monthly_usd": 6.56971197,
+      "usage_daily_usd": 0,
+      "usage_weekly_usd": 0,
+      "usage_monthly_usd": 0,
       "key_source": "auth_profiles",
       "configured_in_openclaw_env": true,
       "message": "key ok"
@@ -46,7 +46,7 @@
     },
     "voyage": {
       "status": "error",
-      "http": 000,
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
       "monitor_mode": "alert_only",
@@ -59,6 +59,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
