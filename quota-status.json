@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-20T06:11:09Z",
+  "timestamp_utc": "2026-02-20T06:26:47Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -53,12 +53,12 @@
       "message": "{\\\"detail\\\":\\\"Not Found\\\"}"
     },
     "minimax": {
-      "status": "configured",
-      "http": 404,
+      "status": "error",
+      "http": 000,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
-      "message": "models endpoint not exposed; key present"
+      "message": "404 page not found"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
