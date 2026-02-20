@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-20T12:33:35Z",
+  "timestamp_utc": "2026-02-20T12:48:44Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -59,6 +59,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "configured_but_not_ok"}
+    "telegram": {"status": "ok"}
   }
 }
