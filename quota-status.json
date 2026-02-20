@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-20T03:48:46Z",
+  "timestamp_utc": "2026-02-20T04:04:49Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -27,14 +27,14 @@
   },
   "providers": {
     "openrouter": {
-      "status": "error",
-      "http": 000,
-      "usage_daily_usd": null,
-      "usage_weekly_usd": null,
-      "usage_monthly_usd": null,
+      "status": "ok",
+      "http": 200,
+      "usage_daily_usd": 0,
+      "usage_weekly_usd": 19.5032897,
+      "usage_monthly_usd": 19.5032897,
       "key_source": "auth_profiles",
       "configured_in_openclaw_env": true,
-      "message": "request failed"
+      "message": "key ok"
     },
     "brave": {
       "status": "not_configured",
@@ -53,11 +53,11 @@
       "message": "{\\\"detail\\\":\\\"Not Found\\\"}"
     },
     "minimax": {
-      "status": "error",
-      "http": 000,
+      "status": "configured",
+      "http": 404,
       "key_source": "config_env",
       "configured_in_openclaw_env": true,
-      "message": "404 page not found"
+      "message": "models endpoint not exposed; key present"
     },
     "telegram": {"status": "configured_but_not_ok"}
   }
