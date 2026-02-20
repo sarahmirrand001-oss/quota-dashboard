@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-20T20:30:31Z",
+  "timestamp_utc": "2026-02-20T20:45:58Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -22,7 +22,7 @@
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
     "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
-    "quota_sync": {"installed":true,"state":"not running","last_exit_code":0},
+    "quota_sync": {"installed":true,"state":"not running","last_exit_code":128},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
