@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-21T07:28:53Z",
+  "timestamp_utc": "2026-02-21T07:43:59Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -13,7 +13,7 @@
   ],
   "system": {
     "openclaw_version": "2026.2.19-2",
-    "gateway_port_listening": true,
+    "gateway_port_listening": false,
     "memory_index_last_status": "ok",
     "memory_search_provider": "unset",
     "memory_search_model": "unset",
