@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-02-21T10:30:48Z",
+  "timestamp_utc": "2026-02-21T10:45:24Z",
   "roadmap": [
     {"priority":"P0","item":"Qwen2.5-14B local model installed in LM Studio (today baseline complete)","status":"completed"},
     {"priority":"P0","item":"Stability gate: verify LM Studio server + gateway + Telegram healthy in one pass","status":"in_progress"},
@@ -21,8 +21,8 @@
   },
   "jobs": {
     "watchdog": {"installed":true,"state":"not running","last_exit_code":0},
-    "quota_monitor": {"installed":true,"state":"running","last_exit_code":0},
-    "quota_sync": {"installed":true,"state":"not running","last_exit_code":128},
+    "quota_monitor": {"installed":false,"state":"missing","last_exit_code":null},
+    "quota_sync": {"installed":false,"state":"missing","last_exit_code":null},
     "memory_maintenance": {"installed":true,"state":"not running","last_exit_code":0}
   },
   "providers": {
@@ -59,6 +59,6 @@
       "configured_in_openclaw_env": true,
       "message": "models endpoint not exposed; key present"
     },
-    "telegram": {"status": "ok"}
+    "telegram": {"status": "configured_but_not_ok"}
   }
 }
